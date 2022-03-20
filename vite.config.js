@@ -17,7 +17,12 @@ export default defineConfig({
             dirs: 'src/views'
         }),
         AutoImport({
+            include: [/\.vue$/, /\.js$/],
+            imports: ['vue', 'pinia', 'vue-router'],
             resolvers: [ElementPlusResolver()],
+            eslintrc: {
+                enabled: true
+            }
         }),
         Components({
             resolvers: [ElementPlusResolver()],
@@ -31,4 +36,7 @@ export default defineConfig({
             '@v': r('src/views')
         }
     },
+    optimizeDeps: {
+        include: ['vue', 'vue-router']
+    }
 })

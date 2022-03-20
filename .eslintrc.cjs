@@ -5,7 +5,8 @@ module.exports = {
     },
     "extends": [
         "eslint:recommended",
-        "plugin:vue/essential"
+        "plugin:vue/essential",
+        "./.eslintrc-auto-import.json"
     ],
     "parserOptions": {
         "ecmaVersion": "latest",
@@ -15,6 +16,7 @@ module.exports = {
         "vue"
     ],
     "rules": {
+        "no-undef": "off",
         "indent": [
             "error",
             4
