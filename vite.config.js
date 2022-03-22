@@ -1,5 +1,7 @@
 import {resolve} from 'path'
 import {defineConfig} from 'vite'
+import Unocss from 'unocss/vite'
+import {presetUno} from 'unocss'
 import vue from '@vitejs/plugin-vue'
 import Pages from 'vite-plugin-pages'
 import AutoImport from 'unplugin-auto-import/vite'
@@ -26,6 +28,12 @@ export default defineConfig({
         }),
         Components({
             resolvers: [ElementPlusResolver()],
+        }),
+        Unocss({
+            presets: [presetUno()],
+            rules: [
+                [/^bb-(\d+)-(#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3}))$/, ([, d,c]) => ({'border-bottom': `${d}px solid ${c}`})]
+            ]
         })
     ],
     resolve: {

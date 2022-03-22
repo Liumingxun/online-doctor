@@ -16,6 +16,7 @@ module.exports = {
         "vue"
     ],
     "rules": {
+        "vue/multi-word-component-names": "off",
         "no-undef": "off",
         "indent": [
             "error",
@@ -23,7 +24,7 @@ module.exports = {
         ],
         "linebreak-style": [
             "error",
-            "unix"
+            "windows"
         ],
         "quotes": [
             "error",
