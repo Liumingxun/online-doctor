@@ -31,7 +31,7 @@
 
 <script setup>
 import {useAccountStore} from '../store/account'
-import {gotoPath} from '../utils'
+import {gotoPath} from '@/utils'
 
 defineProps({
     needBtn: Boolean
