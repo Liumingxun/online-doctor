@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-between p-3 h-full box-border">
+  <div class="flex justify-between p-3 h-full box-border bg-white">
     <div class="cursor-pointer h-full flex" @click="gotoPath('/')">
       <div class="logo inline-block h-full">
         <img alt="LOGO" class="logo h-full" src="@a/logo.png">
@@ -8,7 +8,7 @@
     </div>
     <div v-if="needBtn">
       <div v-if="!userStore.isLogin">
-        <el-button color="#626aef" plain @click="gotoPath('/login')">登录</el-button>
+        <el-button color="#626aef" plain @click="gotoPath('/user/login')">登录</el-button>
       </div>
       <div v-else>
         <el-dropdown>

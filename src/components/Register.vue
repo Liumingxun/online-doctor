@@ -47,7 +47,7 @@
         </div>
       </el-form>
     </div>
-    <div class="reg-link absolute right-10 bottom-10 select-none hover:cursor-pointer" @click="gotoPath('login')">
+    <div class="reg-link absolute right-10 bottom-10 select-none hover:cursor-pointer" @click="gotoPath('/user/login')">
       <div>已有账号&quest;点我去登录&rightarrow;</div>
     </div>
   </div>
