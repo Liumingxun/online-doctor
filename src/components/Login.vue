@@ -2,7 +2,7 @@
   <div class="w-130 h-600px border-#bbb border rounded-10px bg-white-200 relative">
     <div class="img-title flex justify-center h-15%">
       <div class="w-160px h-full pr-22px"><img alt="" class="h-full w-full" src="@a/logo.png"></div>
-      <div class="title text-45px self-center">康乐在线</div>
+      <div class="title-container text-45px self-center">康乐在线</div>
     </div>
     <div class="w-100 m-auto flex justify-center mt-30">
       <el-form :model="user" class="w-full" label-position="left" label-width="100px">
@@ -42,7 +42,7 @@ const user = reactive({
 </script>
 
 <style scoped>
-.title:before {
+.title-container:before {
   content: '';
   border-left: 2px solid #000;
   padding: 0 15px;
