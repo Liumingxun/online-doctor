@@ -33,7 +33,7 @@
       </div>
       <div class="box-border px-2">
         <content-section title="感谢信">
-          <el-carousel arrow="never" indicator-position="none" interval="5000" type="card">
+          <el-carousel :interval="5000" arrow="never" indicator-position="none" type="card">
             <el-carousel-item>
               <el-card>
                 <template #header>
