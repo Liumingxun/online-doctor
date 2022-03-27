@@ -4,10 +4,10 @@ import router from './router'
 import pinia from './store'
 import 'uno.css'
 import VueMarkdownEditor from '@kangc/v-md-editor'
+import VueMarkdownPreview from '@kangc/v-md-editor/lib/preview'
 import '@kangc/v-md-editor/lib/style/base-editor.css'
 import githubTheme from '@kangc/v-md-editor/lib/theme/github.js'
 import '@kangc/v-md-editor/lib/theme/style/github.css'
-import VueMarkdownPreview from '@kangc/v-md-editor/lib/preview'
 import '@kangc/v-md-editor/lib/style/preview.css'
 
 VueMarkdownEditor.use(githubTheme)
