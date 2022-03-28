@@ -20,4 +20,17 @@ html, body, #app {
 body {
   background-color: #f6f6f6;
 }
+
+#k-mdp h1:before,
+#k-mdp h2:before
+{
+  content: '||';
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  color: #242EBF;
+  background: #242EBF;
+  margin-right: 4px;
+}
 </style>
