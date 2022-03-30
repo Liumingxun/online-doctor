@@ -1,12 +1,12 @@
-import {resolve} from 'path'
-import {defineConfig} from 'vite'
+import { resolve } from 'path'
+import { defineConfig } from 'vite'
 import Unocss from 'unocss/vite'
-import {presetUno} from 'unocss'
+import { presetUno } from 'unocss'
 import vue from '@vitejs/plugin-vue'
 import Pages from 'vite-plugin-pages'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
-import {ElementPlusResolver} from 'unplugin-vue-components/resolvers'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
 
 // eslint-disable-next-line no-undef
@@ -46,5 +46,13 @@ export default defineConfig({
     },
     optimizeDeps: {
         include: ['vue', 'vue-router']
+    },
+    server: {
+        proxy: {
+            '/api': {
+                target: 'http://192.168.31.100:8000',
+                rewrite: path => path.replace(/^\/api/, '')
+            }
+        }
     }
 })
