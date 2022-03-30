@@ -2,9 +2,9 @@
   <div class="flex justify-between p-3 h-full box-border bg-white">
     <div class="cursor-pointer h-full flex" @click="gotoPath('/')">
       <div class="logo inline-block h-full">
-        <img alt="LOGO" class="logo h-full" src="@a/logo.png">
+        <img alt="LOGO" class="logo h-full" src="@a/32logo.png">
       </div>
-      <div class="inline-block self-center"><span class="text-xl">康乐在线医疗</span></div>
+      <div class="inline-block self-center"><span class="text-xl pl-2">康乐在线医疗</span></div>
     </div>
     <div v-if="needBtn">
       <div v-if="!userStore.isLogin">
@@ -30,8 +30,8 @@
 </template>
 
 <script setup>
-import {useAccountStore} from '../store/account'
-import {gotoPath} from '@/utils'
+import { useAccountStore } from '../store/account'
+import { gotoPath } from '@/utils'
 
 defineProps({
     needBtn: Boolean
