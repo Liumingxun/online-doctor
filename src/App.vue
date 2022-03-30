@@ -33,4 +33,12 @@ body {
   background: #242EBF;
   margin-right: 4px;
 }
+
+#k-mdp, #mdp {
+  line-height: 30px;
+}
+
+#mdp ol, #mdp ul, #k-mdp ol, #k-mdp ul {
+  list-style-position: inside;
+}
 </style>

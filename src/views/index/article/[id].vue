@@ -3,39 +3,40 @@
     <el-card class="w-80% m-auto mt-10">
       <template #header>
         <div class="text-center relative">
-          <h1>233</h1>
+          <h1>{{ articleDetail.title }}</h1>
           <div class="inline-block">
-            <span>{\{author}}</span>
-            <el-button class="ml-2" size="small" type="primary" @click="talkTo">在线咨询</el-button>
+            <span>{{ articleDetail.author }}</span>
+            <el-button class="ml-2" size="small" type="primary">在线咨询</el-button>
           </div>
           <div class="inline-block mx-5 color-#ccc">|</div>
           <div class="inline-block">
-            <span>{\{date}}</span>
+            <span>{{ beautyTime(articleDetail.create_time, true) }}</span>
           </div>
         </div>
       </template>
-      <v-md-preview id="mdp" :text="src"/>
+      <v-md-preview id="mdp" :text="articleDetail.body"/>
     </el-card>
   </div>
 </template>
 
 <script setup>
-// import {useRoute} from 'vue-router'
-//
-// const route = useRoute()
-//
-// const articleId = route.params.id
+import { useRoute } from 'vue-router'
+import { onMounted, ref } from 'vue'
+import { useArticleStore } from '@/store/article'
+import { beautyTime } from '@/utils'
 
-const src = `
-# 一级标题
-## 二级标题
+const route = useRoute()
+const articleId = route.params.id
+const articleStore = useArticleStore()
+const articleDetail = ref({})
 
-233
+const getArticleDetail = (id) => {
+    articleStore.getArticleDetail(id).then(res => articleDetail.value = res)
+}
 
-veuiyige
-`
-
-
+onMounted(() => {
+    getArticleDetail(articleId)
+})
 </script>
 
 <style scoped>
