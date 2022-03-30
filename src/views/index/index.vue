@@ -4,30 +4,22 @@
     <div class="m-auto w-75%">
       <div class="flex">
         <div class="inline-block w-60% box-border px-2">
-          <content-section moreLink="knowledgeList" title="疾病知识">
-            <div class="flex flex-row justify-around justify-items-center h-208px">
-              <div class="bg-blue-200 w-16% h-full"></div>
-              <div class="bg-blue-200 w-16% h-50%"></div>
-              <div class="bg-blue-200 w-16% h-50%"></div>
-              <div class="bg-blue-200 w-16% h-50%"></div>
-              <div class="bg-blue-200 w-16% h-50%"></div>
-            </div>
+          <content-section moreLink="knowledgeList" title="科普知识">
+            <el-tabs type="card">
+              <el-tab-pane label="">
+
+              </el-tab-pane>
+            </el-tabs>
           </content-section>
         </div>
         <div class="inline-block w-40% box-border px-2">
           <content-section moreLink="articleList" title="专家文章">
-            <ul class="list-inside list-circle">
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-            </ul>
+              <ul class="list-inside list-circle">
+                <li v-for="article in indexArticleList" :key="`article-${article.id}`" class="flex justify-between article-item cursor-pointer" @click="gotoPath(`/article/${article.id}`)">
+                  <div class="truncate w-70%">{{ article.title }}</div>
+                  <div>{{ beautyTime(article.create_time) }}</div>
+                </li>
+              </ul>
           </content-section>
         </div>
       </div>
@@ -55,8 +47,22 @@
 
 <script setup>
 import IndexBanner from '@c/IndexBanner.vue'
-import ContentSection from '@c/ContentSection.vue'</script>
+import ContentSection from '@c/ContentSection.vue'
+import { useArticleStore } from '@/store/article'
+import { onMounted, ref } from 'vue'
+import { beautyTime, gotoPath } from '@/utils'
+
+const articleStore = useArticleStore()
+let indexArticleList = ref([])
+
+const getArticleList = () => {
+    articleStore.getArticleList({page_size: 5}).then(res => indexArticleList.value = res.results)
+}
+
+onMounted(() => {
+    getArticleList()
+})
+</script>
 
 <style scoped>
-
 </style>
