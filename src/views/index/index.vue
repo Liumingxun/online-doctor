@@ -14,12 +14,11 @@
         </div>
         <div class="inline-block w-40% box-border px-2">
           <content-section moreLink="articleList" title="专家文章">
-              <ul class="list-inside list-circle">
-                <li v-for="article in indexArticleList" :key="`article-${article.id}`" class="flex justify-between article-item cursor-pointer" @click="gotoPath(`/article/${article.id}`)">
-                  <div class="truncate w-70%">{{ article.title }}</div>
-                  <div>{{ beautyTime(article.create_time) }}</div>
-                </li>
-              </ul>
+            <div v-for="article in indexArticleList" :key="`article-${article.id}`"
+                 class="justify-between article-item cursor-pointer mb-3px" @click="gotoPath(`/article/${article.id}`)">
+              <div class="truncate w-70% inline-block align-middle">{{ article.title }}</div>
+              <div class="float-right">{{ beautyTime(article.create_time) }}</div>
+            </div>
           </content-section>
         </div>
       </div>
@@ -65,4 +64,8 @@ onMounted(() => {
 </script>
 
 <style scoped>
+.article-item:before {
+  content: '⏺️';
+  vertical-align: top;
+}
 </style>
