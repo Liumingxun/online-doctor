@@ -8,8 +8,10 @@ const useKnowledgeStore = defineStore('knowledge', {
         }
     },
     actions: {
-        async getKnowledge() {
-            return get('/api/knowledge')
+        async getKnowledgeCate() {
+            return get('/api/knowledgecat/')()
         }
     }
 })
+
+export {useKnowledgeStore}

@@ -4,14 +4,14 @@
     <div class="section-title">{{title}}</div>
     <div v-if="moreLink !== undefined" class="cursor-pointer hover:color-blue-300 section-more" @click="handleMore">查看更多</div>
   </div>
-  <div class="rounded-10px border border-gray-200 shadow py-2 px-5 bg-white">
+  <div class="rounded-10px border border-gray-200 shadow py-2 px-5 bg-white h-75%">
     <slot></slot>
   </div>
 </div>
 </template>
 
 <script setup>
-import {useRouter} from 'vue-router'
+import { useRouter } from 'vue-router'
 
 const p = defineProps({
     title: String,

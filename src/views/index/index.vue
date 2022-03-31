@@ -3,23 +3,26 @@
     <index-banner/>
     <div class="m-auto w-75%">
       <div class="flex">
-        <div class="inline-block w-60% box-border px-2">
-          <content-section moreLink="knowledgeList" title="科普知识">
-            <el-tabs type="card">
-              <el-tab-pane label="">
-
+        <div class="inline-block h-80 w-60% box-border px-2">
+          <content-section class="h-full" moreLink="knowledgeList" title="科普知识">
+            <el-tabs class="h-full" stretch type="card">
+              <el-tab-pane v-for="(cate, idx) in indexCategoryList" :key="`cate-${idx}`" :label="cate.name">
+                <div v-for="item in cate.sub_cat" :key="`know-${item.id}`" class="inline-block w-15 mx-2px p-5px rounded-10px bg-#ddd text-center cursor-pointer" @click="gotoPath(`/knowledge/${item.id}`)">
+                  {{ item.name }}
+                </div>
               </el-tab-pane>
             </el-tabs>
           </content-section>
         </div>
-        <div class="inline-block w-40% box-border px-2">
-          <content-section moreLink="articleList" title="专家文章">
-              <ul class="list-inside list-circle">
-                <li v-for="article in indexArticleList" :key="`article-${article.id}`" class="flex justify-between article-item cursor-pointer" @click="gotoPath(`/article/${article.id}`)">
-                  <div class="truncate w-70%">{{ article.title }}</div>
-                  <div>{{ beautyTime(article.create_time) }}</div>
-                </li>
-              </ul>
+        <div class="inline-block h-80 w-40% box-border px-2">
+          <content-section class="h-full" moreLink="articleList" title="专家文章">
+            <ul class="list-inside list-circle">
+              <li v-for="article in indexArticleList" :key="`article-${article.id}`"
+                  class="flex justify-between article-item cursor-pointer" @click="gotoPath(`/article/${article.id}`)">
+                <div class="truncate w-70%">{{ article.title }}</div>
+                <div>{{ beautyTime(article.create_time) }}</div>
+              </li>
+            </ul>
           </content-section>
         </div>
       </div>
@@ -49,18 +52,26 @@
 import IndexBanner from '@c/IndexBanner.vue'
 import ContentSection from '@c/ContentSection.vue'
 import { useArticleStore } from '@/store/article'
+import { useKnowledgeStore } from '@/store/knowledge'
 import { onMounted, ref } from 'vue'
 import { beautyTime, gotoPath } from '@/utils'
 
 const articleStore = useArticleStore()
+const knowledgeStore = useKnowledgeStore()
 let indexArticleList = ref([])
+let indexCategoryList = ref([])
 
 const getArticleList = () => {
     articleStore.getArticleList({page_size: 5}).then(res => indexArticleList.value = res.results)
 }
 
+const getKnowledgeCate = () => {
+    knowledgeStore.getKnowledgeCate().then(res => indexCategoryList.value = res)
+}
+
 onMounted(() => {
     getArticleList()
+    getKnowledgeCate()
 })
 </script>
 
