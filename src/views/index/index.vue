@@ -7,9 +7,9 @@
           <content-section class="h-full" moreLink="knowledgeList" title="科普知识">
             <el-tabs class="h-full" stretch type="card">
               <el-tab-pane v-for="(cate, idx) in indexCategoryList" :key="`cate-${idx}`" :label="cate.name">
-                <div v-for="item in cate.sub_cat" :key="`know-${item.id}`" class="inline-block w-15 mx-2px p-5px rounded-10px bg-#ddd text-center cursor-pointer" @click="gotoPath(`/knowledge/${item.id}`)">
+                <el-button v-for="item in cate.sub_cat" :key="`know-${item.id}`" class="inline-block w-20 mx-2px p-5px rounded-10px text-center cursor-pointer" @click="gotoPath(`/knowledge/${item.id}`)">
                   {{ item.name }}
-                </div>
+                </el-button>
               </el-tab-pane>
             </el-tabs>
           </content-section>
