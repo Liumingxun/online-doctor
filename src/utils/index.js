@@ -1,7 +1,7 @@
 import router from '../router'
 import moment from 'moment'
 
-moment.locale('zhCn', {
+moment.updateLocale('zhCn', {
     months: '一月_二月_三月_四月_五月_六月_七月_八月_九月_十月_十一月_十二月'.split(
         '_'
     ),

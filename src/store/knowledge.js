@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import { get } from '../api'
 
-const useKnowledgeStore = defineStore('knowledge', {
+export const useKnowledgeStore = defineStore('knowledge', {
     state: () => {
         return {
 
@@ -10,8 +10,9 @@ const useKnowledgeStore = defineStore('knowledge', {
     actions: {
         async getKnowledgeCate() {
             return get('/api/knowledgecat/')()
+        },
+        async getKnowledgeDetail(id) {
+            return get(`/api/knowledge/${id}/`)()
         }
     }
 })
-
-export {useKnowledgeStore}
