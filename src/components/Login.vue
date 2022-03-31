@@ -1,20 +1,20 @@
 <template>
-  <div class="w-130 h-600px border-#bbb border rounded-10px bg-white-200 relative">
-    <div class="img-title flex justify-center h-64px pt-20px">
-      <div class="w-160px h-full pr-22px flex justify-center"><img alt="" class="h-full" src="@a/64logo.png"></div>
-      <div class="title-container text-45px self-center">康乐在线</div>
+  <div class="w-80 border-#bbb border rounded-10px pb-30 bg-white-200 bg-opacity-50 relative">
+    <div class="img-title flex justify-center h-64px py-20px">
+      <div class="w-160px h-full flex justify-center"><img alt="" class="h-full" src="/64logo.png"></div>
+      <div class="title-container text-20px self-center">康乐在线</div>
     </div>
-    <div class="w-100 m-auto flex justify-center mt-30">
-      <el-form :model="user" class="w-full" label-position="left" label-width="100px">
+    <div class="w-full px-5 box-border m-auto flex justify-center">
+      <el-form :model="user" class="w-full" label-position="left" label-width="80px">
         <el-form-item>
           <template #label>
-            <span class="text-lg">账号</span>
+            <span>账号</span>
           </template>
           <el-input v-model="user.account" placeholder="手机号或邮箱" type="text"/>
         </el-form-item>
         <el-form-item>
           <template #label>
-            <span class="text-lg">密码</span>
+            <span>密码</span>
           </template>
           <el-input v-model="user.password" placeholder="密码" type="password"/>
         </el-form-item>

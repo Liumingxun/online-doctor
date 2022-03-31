@@ -14,7 +14,7 @@ import THeader from '@c/Header.vue'</script>
 
 <style>
 .logregbg {
-  background-image: url('@a/cool.png');
+  background-image: url('/cool.png');
   background-repeat: no-repeat;
 }
 </style>

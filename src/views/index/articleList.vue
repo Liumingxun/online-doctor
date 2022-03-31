@@ -45,7 +45,7 @@ onMounted(() => {
 
 <style scoped>
 .title-container {
-  background-image: url('@a/particle.png');
+  background-image: url('/particle.png');
   background-repeat: no-repeat;
   background-size: cover;
 }
