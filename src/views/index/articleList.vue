@@ -35,7 +35,7 @@ const articleStore = useArticleStore()
 const articleList = ref([])
 
 const getArticleList = () => {
-    articleStore.getArticleList({page_size: 5}).then(res => articleList.value = res.results)
+    articleStore.getArticleList({page_size: 5}).then(res => articleList.value = res.results).catch(console.error)
 }
 
 onMounted(() => {

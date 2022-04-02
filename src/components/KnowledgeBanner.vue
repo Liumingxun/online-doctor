@@ -1,7 +1,7 @@
 <template>
   <div class="knowledge-banner h-45 pl-10 pt-10">
     <div class="title text-4xl">{{title}}</div>
-    <div v-if="category" class="about-category mt-13">
+    <div v-if="category && category.length !== 0" class="about-category mt-13">
       <span>相关科室：</span>
       <el-tag v-for="(item, idx) in category" :key="`i-c-${idx}`" class="mr-1 select-none cursor-pointer" size="large" @click="gotoPath('/')">
         {{item}}

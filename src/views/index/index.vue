@@ -60,11 +60,11 @@ let indexArticleList = ref([])
 let indexCategoryList = ref([])
 
 const getArticleList = () => {
-    articleStore.getArticleList({page_size: 5}).then(res => indexArticleList.value = res.results)
+    articleStore.getArticleList({page_size: 5}).then(res => indexArticleList.value = res.results).catch(console.error)
 }
 
 const getKnowledgeCate = () => {
-    knowledgeStore.getKnowledgeCate().then(res => indexCategoryList.value = res)
+    knowledgeStore.getKnowledgeCate().then(res => indexCategoryList.value = res).catch(console.error)
 }
 
 onMounted(() => {
