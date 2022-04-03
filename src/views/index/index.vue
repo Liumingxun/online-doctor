@@ -7,9 +7,11 @@
           <content-section class="h-full" moreLink="knowledgeList" title="科普知识">
             <el-tabs class="h-full" stretch type="card">
               <el-tab-pane v-for="(cate, idx) in indexCategoryList" :key="`cate-${idx}`" :label="cate.name">
-                <el-button v-for="item in cate.sub_cat" :key="`know-${item.id}`" class="inline-block w-20 mx-2px p-5px rounded-10px text-center cursor-pointer" @click="gotoPath(`/knowledge/${item.id}`)">
-                  {{ item.name }}
-                </el-button>
+                  <div class="grid grid-cols-4 justify-items-center">
+                    <el-button v-for="item in cate.sub_cat.slice(0,20)" :key="`know-${item.id}`" class="w-25 my-2px rounded-10px text-center cursor-pointer" @click="gotoPath(`/knowledge/${item.id}`)">
+                      {{ item.name }}
+                    </el-button>
+                  </div>
               </el-tab-pane>
             </el-tabs>
           </content-section>
@@ -77,5 +79,9 @@ onMounted(() => {
 .article-item:before {
   content: '⏺️';
   vertical-align: top;
+}
+
+.el-button+.el-button {
+  margin-left: initial;
 }
 </style>

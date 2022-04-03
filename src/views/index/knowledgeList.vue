@@ -1,19 +1,21 @@
 <template>
   <div class="w-80% m-auto">
     <content-section v-for="(content, index) in categoryList" :key="`content-${index}`" :title="content.name">
-      <div class="flex flex-wrap">
-        <div v-for="(item) in content.sub_cat" :key="`item-${item.id}`" class="flex-auto inline-block w-25 h-25 bg-#6cf m-1"
-             @click="gotoPath(`/knowledge/${item.id}`)">
-          {{ item.name }}
+      <more-box>
+        <div class="flex flex-wrap justify-around">
+          <div v-for="(item) in content.sub_cat" :key="`item-${item.id}`"
+               class="w-12% flex-auto m-8px">
+            <router-link :to="`/knowledge/${item.id}`" class="rounded w-full inline-block h-25 bg-#6cf2 border border-#ccc text-center">{{ item.name }}</router-link>
+          </div>
         </div>
-      </div>
+      </more-box>
     </content-section>
   </div>
 </template>
 
 <script setup>
+import MoreBox from '@c/MoreBox.vue'
 import ContentSection from '@c/ContentSection.vue'
-import { gotoPath } from '@/utils'
 import { onMounted, ref } from 'vue'
 import { useKnowledgeStore } from '@/store/knowledge'
 
@@ -28,11 +30,12 @@ const getKnowledgeCate = () => {
 onMounted(() => {
     getKnowledgeCate()
 })
-
-
-
 </script>
 
 <style scoped>
+*:link, *:visited, *:active {
 
+  text-decoration: none;
+  color: initial;
+}
 </style>
