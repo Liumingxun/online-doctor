@@ -8,7 +8,9 @@
             <el-tabs class="h-full" stretch type="card">
               <el-tab-pane v-for="(cate, idx) in indexCategoryList" :key="`cate-${idx}`" :label="cate.name">
                   <div class="grid grid-cols-4 justify-items-center">
-                    <el-button v-for="item in cate.sub_cat.slice(0,20)" :key="`know-${item.id}`" class="w-25 my-2px rounded-10px text-center cursor-pointer" @click="gotoPath(`/knowledge/${item.id}`)">
+                    <el-button v-for="item in cate.sub_cat.slice(0,20)" :key="`know-${item.id}`"
+                               class="w-25 my-2px rounded-10px text-center cursor-pointer"
+                               @click="gotoPath(`/knowledge/${item.id}`)">
                       {{ item.name }}
                     </el-button>
                   </div>
