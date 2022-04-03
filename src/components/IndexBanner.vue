@@ -5,8 +5,8 @@
     <div class="text-right">与温暖医生零距离</div>
     </div>
     <div class="flex justify-center flex-wrap">
-      <el-button class="rounded-10px p-60px text-50px font-extrabold shadow-gray-500 shadow-lg" type="primary">找医生</el-button>
-      <el-button class="rounded-10px p-60px text-50px font-extrabold shadow-gray-500 shadow-lg" type="primary">在线问</el-button>
+      <el-button class="rounded-10px p-60px text-50px font-extrabold shadow-gray-500 shadow-lg" type="primary" @click="gotoPath('/findDoctor')">找医生</el-button>
+      <el-button class="rounded-10px p-60px text-50px font-extrabold shadow-gray-500 shadow-lg" type="primary" @click="gotoPath('/askDetail')">在线问</el-button>
       <el-button class="rounded-10px p-60px text-50px font-extrabold shadow-gray-500 shadow-lg" type="primary" @click="gotoPath('/knowledgeList')">查知识</el-button>
     </div>
   </div>
